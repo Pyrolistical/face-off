@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="face-off">
+  <head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <title>Face Off</title>
+    <script src="libraries/angular/angular.js"></script>
+
+    <script src="javascript/Application.js"></script>
+  </head>
+  <body ng-controller="indexController">
+    <center>
+      <h1>League Of Legends: Face Off</h1>
+      <div ng-repeat="(gameId, game) in games">
+        <div>
+          <span ng-repeat="player in game['blue-side'].players">
+            {{player}}
+          </span>
+        </div>
+        <div>
+          <span>Average Win Rate {{game['blue-side']['win-rate'] * 100 | number: 0}}%</span>
+        </div>
+        <div>
+          vs
+        </div>
+        <div>
+          <span ng-repeat="player in game['red-side'].players">
+            {{player}}
+          </span>
+        </div>
+        <div>
+          <span>Average Win Rate {{game['red-side']['win-rate'] * 100 | number: 0}}%</span>
+        </div>
+        <br/>
+      </div>
+    </center>
+  </body>
+</html>
